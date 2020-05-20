@@ -1,0 +1,258 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"IProduct": {
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"price": {
+					"type": "number",
+					"format": "double"
+				}
+			},
+			"required": [
+				"name",
+				"price"
+			],
+			"type": "object",
+			"additionalProperties": true
+		},
+		"IOffer": {
+			"properties": {
+				"products": {
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				},
+				"type": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"products",
+				"type"
+			],
+			"type": "object",
+			"additionalProperties": true
+		},
+		"IBasket": {
+			"properties": {
+				"products": {
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"products"
+			],
+			"type": "object",
+			"additionalProperties": true
+		}
+	},
+	"info": {
+		"title": "developer-excercise",
+		"version": "1.0.0",
+		"description": "This exercise is designed to demonstrate a candidate's abilities across a range of competencies in software development (The applicant can pick any language of their preference)",
+		"license": {
+			"name": "ISC"
+		}
+	},
+	"paths": {
+		"/products": {
+			"get": {
+				"operationId": "GetAll",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/IProduct"
+							},
+							"type": "array"
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "product",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/IProduct"
+						}
+					}
+				]
+			},
+			"patch": {
+				"operationId": "CreateMultiple",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "products",
+						"required": true,
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/IProduct"
+							},
+							"type": "array"
+						}
+					}
+				]
+			}
+		},
+		"/offers": {
+			"get": {
+				"operationId": "GetAll",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/IOffer"
+							},
+							"type": "array"
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "offer",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/IOffer"
+						}
+					}
+				]
+			}
+		},
+		"/baskets": {
+			"get": {
+				"operationId": "GetAll",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/IBasket"
+							},
+							"type": "array"
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"additionalProperties": true,
+							"type": "object"
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "basket",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/IBasket"
+						}
+					}
+				]
+			}
+		},
+		"/baskets/{id}/total-price": {
+			"get": {
+				"operationId": "GetTotalPrice",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}

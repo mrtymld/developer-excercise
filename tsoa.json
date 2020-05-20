@@ -1,0 +1,12 @@
+{
+  "entryFile": "./src/app.ts",
+  "spec": {
+    "outputDirectory": ".",
+    "entryFile": "./src/app.ts"
+  },
+  "routes": {
+    "basePath": "/",
+    "entryFile": "./src/app.ts",
+    "routesDir": "./src"
+  }
+}

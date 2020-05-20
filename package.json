@@ -1,0 +1,75 @@
+{
+  "name": "developer-excercise",
+  "version": "1.0.0",
+  "description": "This exercise is designed to demonstrate a candidate's abilities across a range of competencies in software development (The applicant can pick any language of their preference)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -x ts-node src/index.ts",
+    "test": "jest",
+    "generate": "tsoa routes && tsoa swagger"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ignore": [
+      "src/routes.ts"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "verbose": true,
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            151001
+          ]
+        }
+      }
+    },
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/test/**/*.test.(ts|js)"
+    ],
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrtymld/developer-excercise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrtymld/developer-excercise/issues"
+  },
+  "homepage": "https://github.com/mrtymld/developer-excercise#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15",
+    "swagger-ui-express": "^4.1.4",
+    "ts-node": "^8.10.1",
+    "tsoa": "^3.0.8",
+    "typescript": "^3.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.3",
+    "@types/mongodb-memory-server": "^2.3.0",
+    "@types/mongoose": "^5.7.21",
+    "@types/node": "^14.0.1",
+    "@types/supertest": "^2.0.9",
+    "jest": "^26.0.1",
+    "mongodb-memory-server": "^6.6.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.0.0"
+  }
+}

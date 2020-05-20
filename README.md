@@ -68,3 +68,24 @@ You are free to make your solution to this exercise as simple or as complicated 
 - REST/HTTP API
 - User interface (web app)
 - Application CLI
+
+
+## Solution - HTTP API written in TypeScript/NodeJs
+
+### Install dependencies
+
+      $ npm i
+
+### Run tests
+  
+      $ npm test
+
+### Generate routes and Swagger documentation
+  
+      $ npm run generate
+
+### Run API
+  
+      $ npm start
+
+Once running, documentation UI will be available at: http://localhost:8080/docs
